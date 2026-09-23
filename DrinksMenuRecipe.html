@@ -1,204 +1,513 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
+<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Latte Larry's Drinks</title>
-<link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF4E9;
+    --card-bg: #FFFFFF;
+    --text: #2B241F;
+    --text-muted: #5B4E42;
+    --accent: #B8862F;
+    --footer-bg: #34302B;
+    --footer-text: #D8C9A8;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Work Sans', sans-serif;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  a {
+    color: var(--accent);
+  }
+
+  .hero {
+    text-align: center;
+    padding: 56px 20px 40px;
+  }
+
+  .hero-logo {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 12px 32px rgba(43, 36, 31, 0.25);
+  }
+
+  .hero-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--accent);
+    border: none;
+    margin: 24px auto;
+  }
+
+  .hero-tagline {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  main {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+  }
+
+  .section-header {
+    text-align: center;
+    margin: 64px auto 32px;
+  }
+
+  .eyebrow {
+    display: block;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 2.5rem;
+    margin: 0 0 16px;
+  }
+
+  .section-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--accent);
+    border: none;
+    margin: 0 auto;
+  }
+
+  .drink-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  @media (min-width: 768px) {
+    .drink-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .drink-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border-radius: 28px;
+    box-shadow: 0 12px 30px rgba(43, 36, 31, 0.10);
+    overflow: hidden;
+  }
+
+  .drink-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .drink-info {
+    flex: 1;
+    padding: 20px 24px 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .drink-name {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 2rem;
+    margin: 0 0 12px;
+  }
+
+  .name-divider {
+    width: 36px;
+    height: 2px;
+    background: var(--accent);
+    border: none;
+    margin: 0 0 12px;
+  }
+
+  .drink-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .visit-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .visit-card {
+    background: var(--card-bg);
+    border-radius: 28px;
+    box-shadow: 0 12px 30px rgba(43, 36, 31, 0.10);
+    padding: 24px;
+    text-align: center;
+    width: 220px;
+  }
+
+  .visit-card img {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    margin: 0 auto 16px;
+  }
+
+  .visit-title {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    margin: 0;
+  }
+
+  footer {
+    background: var(--footer-bg);
+    margin-top: 64px;
+    padding: 32px 20px;
+    text-align: center;
+  }
+
+  .footer-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--accent);
+    border: none;
+    margin: 0 auto 20px;
+  }
+
+  .footer-caption {
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--footer-text);
+    margin: 0;
+  }
+</style>
 </head>
-<body leftmargin="10">
-	<center>
-    <h1>&nbsp;
-      </h1>
-    <h1>.<img src="images/LatteLarrys.png" width="160" height="150" alt=""/>
-    </h1>
-<h2>Coffee Drinks</h2>
-<div class="container"></div>
+<body>
 
-<h3>Americano</h3>
-<p><img src="images/Americano.png" width="300" height="200" alt=""/></p>
-<p>2 Shots of espresso and hot water. Basically a black coffee that you can add cream &amp; sugar to</p>
+<header class="hero">
+  <img class="hero-logo" src="images/LatteLarrys.png" alt="Latte Larry's"/>
+  <hr class="hero-divider">
+  <p class="hero-tagline">Hot Coffee &amp; Real Scones</p>
+</header>
 
-<h3>Capaccino</h3>
-<p><img src="images/Capaccino.png" width="300" height="200" alt=""/></p>
+<main>
 
-<p>Espresso & steamed milk with a lot of foam</p>
-<h3>Espresso</h3>
-<p><img src="images/Espresso.png" width="300" height="200" alt=""/></p>
-<p>A straight shot, or two, of espresso and nothing else!</p>
+  <section>
+    <div class="section-header">
+      <span class="eyebrow">Menu</span>
+      <h2 class="section-title">Coffee Drinks</h2>
+      <hr class="section-divider">
+    </div>
+    <div class="drink-list">
+      <div class="drink-card">
+        <img class="drink-photo" src="images/Americano.png" alt="Americano"/>
+        <div class="drink-info">
+          <h3 class="drink-name">Americano</h3>
+          <hr class="name-divider">
+          <p class="drink-desc">2 Shots of espresso and hot water. Basically a black coffee that you can add cream &amp; sugar to</p>
+        </div>
+      </div>
+      <div class="drink-card">
+        <img class="drink-photo" src="images/Capaccino.png" alt="Capaccino"/>
+        <div class="drink-info">
+          <h3 class="drink-name">Capaccino</h3>
+          <hr class="name-divider">
+          <p class="drink-desc">Espresso & steamed milk with a lot of foam</p>
+        </div>
+      </div>
+      <div class="drink-card">
+        <img class="drink-photo" src="images/Espresso.png" alt="Espresso"/>
+        <div class="drink-info">
+          <h3 class="drink-name">Espresso</h3>
+          <hr class="name-divider">
+          <p class="drink-desc">A straight shot, or two, of espresso and nothing else!</p>
+        </div>
+      </div>
+      <div class="drink-card">
+        <img class="drink-photo" src="images/FlatWhite.png" alt="Flat White"/>
+        <div class="drink-info">
+          <h3 class="drink-name">Flat White</h3>
+          <hr class="name-divider">
+          <p class="drink-desc">One part of espresso to two parts of steamed milk with very little foam</p>
+        </div>
+      </div>
+      <div class="drink-card">
+        <img class="drink-photo" src="images/LatteMocha.png" alt="Latte"/>
+        <div class="drink-info">
+          <h3 class="drink-name">Latte</h3>
+          <hr class="name-divider">
+          <p class="drink-desc">One part espresso to three parts of steamed milk with fine microbubble foam</p>
+        </div>
+      </div>
+      <div class="drink-card">
+        <img class="drink-photo" src="images/Macchiato.png" alt="Macchiato"/>
+        <div class="drink-info">
+          <h3 class="drink-name">Macchiato</h3>
+          <hr class="name-divider">
+          <p class="drink-desc">Equal parts espresso & steamed milk</p>
+        </div>
+      </div>
+      <div class="drink-card">
+        <img class="drink-photo" src="images/LatteMocha.png" alt="Mocha Latte"/>
+        <div class="drink-info">
+          <h3 class="drink-name">Mocha Latte</h3>
+          <hr class="name-divider">
+          <p class="drink-desc">A latte made with Ghirardelli dark chocolate</p>
+        </div>
+      </div>
+      <div class="drink-card">
+        <img class="drink-photo" src="images/SweetShot.png" alt="Sweet Shot"/>
+        <div class="drink-info">
+          <h3 class="drink-name">Sweet Shot</h3>
+          <hr class="name-divider">
+          <p class="drink-desc">A double shot of espresso with Ghirardelli &amp; Mexian Spiced chocolate</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<h3>Flat White</h3>
-<p><img src="images/FlatWhite.png" width="300" height="200" alt=""/></p>
-<p>One part of espresso to two parts of steamed milk with very little foam</p>
+  <section>
+    <div class="section-header">
+      <span class="eyebrow">Menu</span>
+      <h2 class="section-title">Mixed Drinks</h2>
+      <hr class="section-divider">
+    </div>
+    <div class="drink-list">
+      <div class="drink-card">
+        <img class="drink-photo" src="images/Boulvevardier.png" alt="Boulvevardier"/>
+        <div class="drink-info">
+          <h3 class="drink-name">Boulvevardier</h3>
+          <hr class="name-divider">
+          <p class="drink-desc">Mixing glass<br>
+            3/4 oz Sweet Vermouth<br>
+            3/4 oz Campari<br>
+            2 oz Bourbon<br>
+            Cracked ice - stir<br>
+            Julep strain into chilled coupe with ice or straight up<br>
+            Orange twist</p>
+        </div>
+      </div>
+      <div class="drink-card">
+        <img class="drink-photo" src="images/EspressoMartini.png" alt="Espresso Martini"/>
+        <div class="drink-info">
+          <h3 class="drink-name">Espresso Martini</h3>
+          <hr class="name-divider">
+          <p class="drink-desc">2 shots of espresso<br>
+            2 ounces Baileys Irish Cream<br>
+            6 ounces heavy cream or half &amp; half <br>
+            1 ounce vodka<br>
+            Garnish with crushed espresso bean</p>
+        </div>
+      </div>
+      <div class="drink-card">
+        <img class="drink-photo" src="images/Grasshopper.png" alt="Grasshopper"/>
+        <div class="drink-info">
+          <h3 class="drink-name">Grasshopper</h3>
+          <hr class="name-divider">
+          <p class="drink-desc">1 ounce green creme de menthe<br>
+            1 ounce white creme de cacao<br>
+            6 ounces heavy cream<br>
+            Garnish: shaved chocolate, mint leaf</p>
+        </div>
+      </div>
+      <div class="drink-card">
+        <img class="drink-photo" src="images/Manhattan.png" alt="Manhattan"/>
+        <div class="drink-info">
+          <h3 class="drink-name">Manhattan</h3>
+          <hr class="name-divider">
+          <p class="drink-desc">Mixing glass<br>
+            1 oz Sweet Vermouth<br>
+            2 oz Rey Whisky<br>
+            A few dashes of aomatic bitters<br>
+            Broken ice<br>
+            Luxaro cherry<br>
+            Stir<br>
+            Strain with julip into <br>
+            coupe or vintage glass</p>
+        </div>
+      </div>
+      <div class="drink-card">
+        <img class="drink-photo" src="images/MintJulep.png" alt="Mint Julep"/>
+        <div class="drink-info">
+          <h3 class="drink-name">Mint Julep</h3>
+          <hr class="name-divider">
+          <p class="drink-desc">Mixer glass<br>
+            15 leaves of mint<br>
+            A lot of simple syrup<br>
+            Muddle, not too much, spread around rocks glass<br>
+            2.5 oz of high proof Bourbon<br>
+            Add crushed ice<br>
+            Swizzle lightly<br>
+            Add straw and more ice<br>
+            Add mint flourish<br>
+            Add bitters and drizzle of Rum</p>
+        </div>
+      </div>
+      <div class="drink-card">
+        <img class="drink-photo" src="images/Margarita.png" alt="Margarita"/>
+        <div class="drink-info">
+          <h3 class="drink-name">Margarita</h3>
+          <hr class="name-divider">
+          <p class="drink-desc">2 oz tequila<br>
+            3/4 oz orange liqueur<br>
+            1 oz lime juice<br>
+            salt chilled rim<br>
+            Garnish: lime wheel<br>
+            Make on the rocks or frozen<br>
+            For frozen use 1 cup of ice in blender</p>
+        </div>
+      </div>
+      <div class="drink-card">
+        <img class="drink-photo" src="images/MoscowMule.png" alt="Moscow Mule"/>
+        <div class="drink-info">
+          <h3 class="drink-name">Moscow Mule</h3>
+          <hr class="name-divider">
+          <p class="drink-desc">Mix in chilled Mule mug<br>
+            Fill with ice<br>
+            1 oz fresh lime juice<br>
+            2 oz Vodka<br>
+            Top with Ginger Beer<br>
+            Garnish: lime wedges, fresh min</p>
+        </div>
+      </div>
+      <div class="drink-card">
+        <img class="drink-photo" src="images/OldFashioned.png" alt="Old Fashioned"/>
+        <div class="drink-info">
+          <h3 class="drink-name">Old Fashioned</h3>
+          <hr class="name-divider">
+          <p class="drink-desc">Mix in glass<br>
+            1 sugar cube<br>
+            Orange bitters<br>
+            Splash of water<br>
+            Muddle<br>
+            Large ice cube<br>
+            2 oz Bourbon<br>
+            Garnish: cherry, orange peal<br>
+            Optional: Candied orange slice, smoke</p>
+        </div>
+      </div>
+      <div class="drink-card">
+        <img class="drink-photo" src="images/PinkLady.JPG" alt="Pink Lady"/>
+        <div class="drink-info">
+          <h3 class="drink-name">Pink Lady</h3>
+          <hr class="name-divider">
+          <p class="drink-desc">1.5 oz gin<br>
+            1/2 oz Apple Brand<br>
+            3/4 oz lemon juice<br>
+            1/4 oz Grenadine<br>
+            1 egg white<br>
+            Shake like crazy<br>
+            Serve in tall class with pink flower</p>
+        </div>
+      </div>
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3 class="drink-name">Wet Pussy #1</h3>
+          <hr class="name-divider">
+          <p class="drink-desc">2 oz Baileys Irish Cream<br>
+            1 oz Chambord Rasberry Liqueur<br>
+            6 oz cream<br>
+            Mix in shaker with ice<br>
+            Serve in tall glass</p>
+        </div>
+      </div>
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3 class="drink-name">Wet Pussy #2</h3>
+          <hr class="name-divider">
+          <p class="drink-desc">1 oz Malibu<br>
+            1 oz Watermellon Schnapps<br>
+            Splace cranberry juice<br>
+            Splace of pineapple juice<br>
+            Mix in shaker with ice<br>
+            Serve in tall glass</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<h3>Latte</h3>
-<p><img src="images/LatteMocha.png" width="300" height="200" alt=""/></p>
-<p>One part espresso to three parts of steamed milk with fine microbubble foam</p>
+  <section>
+    <div class="section-header">
+      <span class="eyebrow">Menu</span>
+      <h2 class="section-title">Red Wines</h2>
+      <hr class="section-divider">
+    </div>
+    <div class="drink-list">
+      <div class="drink-card">
+        <a href="https://www.tinazzi.it/en/wines/veneto/tinazzi/collezione-di-famiglia-2/"><img class="drink-photo" src="images/TinazziValpolicella.png" alt="Tinazzi"/></a>
+        <div class="drink-info">
+          <h3 class="drink-name">Tinazzi Valpolicella</h3>
+          <hr class="name-divider">
+        </div>
+      </div>
+      <div class="drink-card">
+        <a href="https://www.tinazzi.it/en/wines/veneto/tinazzi/collezione-di-famiglia-2/"><img class="drink-photo" src="images/ValpolicellaSuperiore.jpg" alt="Tinazzi"/></a>
+        <div class="drink-info">
+          <h3 class="drink-name">Zenato Valpolicella Superiore</h3>
+          <hr class="name-divider">
+        </div>
+      </div>
+    </div>
+  </section>
 
-<h3>Macchiato</h3>
-<p><img src="images/Macchiato.png" width="300" height="200" alt=""/></p>
-<p>Equal parts espresso & steamed milk</p>
+  <section>
+    <div class="section-header">
+      <span class="eyebrow">Visit</span>
+      <hr class="section-divider">
+    </div>
+    <div class="visit-row">
+      <div class="visit-card">
+        <img src="images/LatteLarrysQRCode.png" alt="Menu"/>
+        <h3 class="visit-title">Menu</h3>
+      </div>
+      <div class="visit-card">
+        <a href="https://www.google.com/maps/place/14518+Cypress+Links+Trail,+Cypress,+TX+77429/@29.9874048,-95.7157445,17z/data=!3m1!4b1!4m5!3m4!1s0x8640d59e727b9d35:0xab4940da9ca10c4b!8m2!3d29.9874048!4d-95.7135505"><img src="images/AddressQRCode.png" alt="Address"/></a>
+        <h3 class="visit-title">Address to Latte Larry's</h3>
+      </div>
+    </div>
+  </section>
 
-<h3>Mocha Latte</h3>
-<p><img src="images/LatteMocha.png" width="300" height="200" alt=""/></p>
-<p>A latte made with Ghirardelli dark chocolate</p>
-</br>
+</main>
 
-<h3>Sweet Shot</h3>
-<p><img src="images/SweetShot.png" width="300" height="200" alt=""/></p>
-<p>A double shot of espresso with Ghirardelli &amp; Mexian Spiced chocolate</p>
+<footer>
+  <hr class="footer-divider">
+  <p class="footer-caption">Latte Larry's &middot; Est. 2020</p>
+</footer>
 
-<h2>&nbsp;</h2>
-<h2>Mixed Drinks</h2>
-
-<h3>Boulvevardier</h3>
-<img src="images/Boulvevardier.png" width="300" height="200" alt=""/><br>
-Mixing glass<br>
-  3/4 oz Sweet Vermouth<br>
-  3/4 oz Campari<br>
-  2 oz Bourbon<br>
-  Cracked ice - stir<br>
-  Julep strain into chilled coupe with ice or straight up<br>
-  Orange twist
-
-<h3>&nbsp;</h3>
-<h3>Espresso Martini</h3>
-<img src="images/EspressoMartini.png" width="300" height="200" alt=""/><br>
-  2 shots of espresso<br>
-  2 ounces Baileys Irish Cream<br>
-  2 ounces heavy cream or half & half <br>
-  1 ounce vodka<br>
-  Garnish with crushed espresso bean
-  <br>
-<h3>&nbsp;</h3>
-<h3>Grasshopper</h3>
-<img src="images/Grasshopper.png" width="300" height="200" alt=""/><br>
-  1 ounce green creme de menthe
-    <br>
-    1 ounce white creme de cacao
-    <br>
-    2 ounces heavy cream
-    <br>
-    Garnish: nutmeg, mint leaf
-<h3>&nbsp;</h3>
-
-<h3>Manhattan</h3>
-<img src="images/Manhattan.png" width="300" height="200" alt=""/><br>
-Mixing glass<br>
-  1 oz Sweet Vermouth<br>
-2 oz Rey Whisky<br>
-A few dashes of aomatic bitters
-<br>
-Broken ice<br>
-Luxaro cherry<br>
-Stir<br>
-Strain with julip into <br>
-coupe or vintage glass<br>
-
-<h3><br>Mint Julep</h3>
-<img src="images/MintJulep.png" width="300" height="200" alt=""/><br>
-Mixer glass<br>
-15 leaves of mint<br>
-A lot of simple syrup<br>
-Muddle, not too much, spread around rocks glass<br>
-2.5 oz of high proof Bourbon<br>
-Add crushed ice<br>
-Swizzle lightly<br>
-Add straw and more ice<br>
-Add mint flourish<br>
-Add bitters and drizzle of Rum<br>
-
-<h3>&nbsp;</h3>
-<h3>Margarita</h3>
-<p><img src="images/Margarita.png" width="300" height="200" alt=""/><br>
-2 oz tequila<br>
-3/4 oz orange liqueur<br>
-1 oz lime juice<br>
-salt chilled rim<br>
-Garnish: lime wheel<br>
-Make on the rocks or frozen<br>
-For frozen use 1 cup of ice in blender<br>
-	
-<h3>&nbsp;</h3>
-<h3>Moscow Mule</h3>
-<img src="images/MoscowMule.png" width="300" height="200" alt=""/></p>
-Mix in chilled Mule mug<br>
-  Fill with ice<br>
-  1 oz fresh lime juice<br>
-  2 oz Vodka<br>
-  Top with Ginger Beer<br>
-  Garnish: lime wedges, fresh min
-  <br>
-
-<h3>&nbsp;</h3>
-<h3>Old Fashioned</h3>
-<img src="images/OldFashioned.png" width="300" height="200" alt=""/></p>
-Mix in glass<br>
-  1 sugar cube<br>
-  Orange bitters<br>
-  Splash of water<br>
-  Muddle<br>
-  Large ice cube<br>
-  2 oz Bourbon<br>
-  Garnish: cherry, orange peal<br>
-  Optional: Candied orange slice, smoke<br>
-
-<h3>&nbsp;</h3>
-<h3>Pink Lady</h3>
-	<p><img src="images/PinkLady.JPG" width="300" height="200" alt=""/></br>
-	</p>
-<p>1.5 oz gin<br>
-  1/2 oz Apple Brand<br>
-  3/4 oz lemon juice<br>
-  1/4 oz Grenadine<br>
-  1 egg white<br>
-  Shake like crazy<br>
-  Serve in tall class with pink flower
-</p>
-<h2>Wet Pussy #1</h2>
-<p>2 oz Baileys Irish Cream<br>
-  1 oz Chambord Rasberry Liqueur<br>
-  6 oz cream<br>
-  Mix in shaker with ice<br>
-  Serve in tall glass
-</p>
-
-<h2>Wet Pussy #2</h2>
-<p>1 oz Malibu<br>
-  1 oz Watermellon Schnapps<br>
-  Splace cranberry juice<br>
-  Splace of pineapple juice
-  <br>
-  Mix in shaker with ice<br>
-  Serve in tall glass
-</p>
-
-
-
-
-<h2>&nbsp;</h2>
-<h2>Red Wines</h2>
-<div class="container"></div>
-
-<h3>Tinazzi Valpolicella</h3>
-<p><a href="https://www.tinazzi.it/en/wines/veneto/tinazzi/collezione-di-famiglia-2/"><img src="images/TinazziValpolicella.png" width ="300" height="435" alt="Tinazzi"/></a>
-
-</p>
-<h3>&nbsp;</h3>
-<h3>Zenato Valpolicella Superiore</h3>
-<p><a href="https://www.tinazzi.it/en/wines/veneto/tinazzi/collezione-di-famiglia-2/"><img src="images/ValpolicellaSuperiore.jpg" width ="300" height="435" alt="Tinazzi"/></a>
-</p>
-</br>
-
-<p>&nbsp;</p>
-Menu
-</br>
-<p><img src="images/LatteLarrysQRCode.png" width="200" height="200" alt="Menu"/>
-
-</p>
-Address to Latte Larry's
-<p><a href="https://www.google.com/maps/place/14518+Cypress+Links+Trail,+Cypress,+TX+77429/@29.9874048,-95.7157445,17z/data=!3m1!4b1!4m5!3m4!1s0x8640d59e727b9d35:0xab4940da9ca10c4b!8m2!3d29.9874048!4d-95.7135505"><img src="images/AddressQRCode.png" width="200" height="200" alt="Address"/></a></p>
-</center>
 </body>
 </html>
